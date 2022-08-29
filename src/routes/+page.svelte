@@ -3,34 +3,21 @@
 </script>
 
 <div class="grid">
-	<Tile>Tile 1</Tile>
-	<Tile>Tile 2</Tile>
-	<Tile>Tile 3</Tile>
-
-	<Tile>Tile 4</Tile>
-	<Tile>Tile 5</Tile>
-	<Tile>Tile 6</Tile>
-
-	<Tile>Tile 7</Tile>
-	<Tile>Tile 8</Tile>
-	<Tile>Tile 9</Tile>
-
-	<Tile>Tile 10</Tile>
-	<Tile>Tile 11</Tile>
-	<Tile>Tile 12</Tile>
+	<Tile>Incline Bed</Tile>
+	<Tile>Lay down</Tile>
+	<Tile>Sit up</Tile>
+	<Tile>Need Medicine</Tile>
+	<Tile>Nurse or Doctor</Tile>
+	<Tile>In Pain</Tile>
+	<Tile>Food/Drink</Tile>
+	<Tile>TV</Tile>
+	<Tile>Bath</Tile>
+	<Tile>Change Bed</Tile>
+	<Tile>Emotions</Tile>
+	<Tile>Yes/No</Tile>
 </div>
 
 <style>
-	:global(body) {
-		margin: 0;
-		height: 100vh;
-		width: 100vw;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
 	.grid {
 		display: grid;
 		height: 100vh;
