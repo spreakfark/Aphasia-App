@@ -10,22 +10,26 @@
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
-		<slot />
+		<span>
+			<slot />
+		</span>
 	</button>
 {:else}
 	<a class={$$props.class + ' tile'} class:disabled {href}>
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
-		<slot />
+		<span>
+			<slot />
+		</span>
 	</a>
 {/if}
 
 <style>
 	.tile {
 		font-family: 'Poppins', Arial, Helvetica, sans-serif;
-		font-size: clamp(1rem, 4vw, 2.75rem);
-        line-height: 3rem;
+		font-size: clamp(1rem, min(4vw, 4vh), 2.75rem);
+        line-height: clamp(1rem, min(5vw, 5vh), 3rem);;
 		text-decoration: none;
 		background-color: #ffffff;
 		color: #000000;
@@ -33,7 +37,7 @@
 		border-radius: 0;
 		margin-right: -1px;
 		margin-bottom: -1px;
-		padding: 2rem;
+		padding: clamp(0rem, min(4vw, 4vh), 2rem);;;
 		transition: 0s;
 		transition-delay: 3s;
 		transition-duration: 0.5s;
@@ -53,13 +57,13 @@
 	}
 
 	.tile .icon {
-		width: 36%;
-		height: 36%;
+		width: auto;
+		height: calc( clamp(1rem, min(4vw, 4vh), 2.75rem) *2);
 		object-fit: contain;
 		transition: 0s;
 		transition-delay: 3s;
 		transition-duration: 0.5s;
-		margin-bottom: 1rem;
+		margin-bottom: min(1vw, 1vh);;
 	}
 
 	.tile:not(.disabled):active .icon {
