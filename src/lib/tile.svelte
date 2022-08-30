@@ -32,7 +32,7 @@
 		font-weight: 700;
 		line-height: clamp(1rem, min(5vw, 5vh), 3rem);
 		text-decoration: none;
-		background-color: #ffffff;
+		background-color: var(--tile-bg-color, #ffffff);
 		color: #000000;
 		border: 1px #000000 solid;
 		border-radius: 0;
