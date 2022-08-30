@@ -18,7 +18,7 @@
 	}
 
 	.yes-no-page :global(.big) {
-		font-size: 18vw;
+		font-size: min(18vh, 18vw);
 	}
 
 	.back {

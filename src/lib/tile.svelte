@@ -29,7 +29,8 @@
 	.tile {
 		font-family: 'Poppins', Arial, Helvetica, sans-serif;
 		font-size: clamp(1rem, min(4vw, 4vh), 2.75rem);
-        line-height: clamp(1rem, min(5vw, 5vh), 3rem);;
+		font-weight: 700;
+		line-height: clamp(1rem, min(5vw, 5vh), 3rem);
 		text-decoration: none;
 		background-color: #ffffff;
 		color: #000000;
@@ -37,7 +38,7 @@
 		border-radius: 0;
 		margin-right: -1px;
 		margin-bottom: -1px;
-		padding: clamp(0rem, min(4vw, 4vh), 2rem);;;
+		padding: clamp(0rem, min(4vw, 4vh), 2rem);
 		transition: 0s;
 		transition-delay: 3s;
 		transition-duration: 0.5s;
@@ -58,12 +59,12 @@
 
 	.tile .icon {
 		width: auto;
-		height: calc( clamp(1rem, min(4vw, 4vh), 2.75rem) *2);
+		height: calc(clamp(1rem, min(4vw, 4vh), 2.75rem) * 2);
 		object-fit: contain;
 		transition: 0s;
 		transition-delay: 3s;
 		transition-duration: 0.5s;
-		margin-bottom: min(1vw, 1vh);;
+		margin-bottom: min(1vw, 1vh);
 	}
 
 	.tile:not(.disabled):active .icon {
