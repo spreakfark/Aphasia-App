@@ -9,7 +9,7 @@
 	<Tile icon_href="/icons/pill.svg">Need Medicine</Tile>
 	<Tile icon_href="/icons/doctor.svg">Nurse or Doctor</Tile>
 	<Tile icon_href="/icons/lightning-bolt.svg">In Pain</Tile>
-	<Tile icon_href="/icons/food.svg">Food/Drink</Tile>
+	<Tile icon_href="/icons/food.svg" href="/food-drink">Food/Drink</Tile>
 	<Tile icon_href="/icons/television-classic.svg">TV</Tile>
 	<Tile icon_href="/icons/shower.svg">Bath</Tile>
 	<Tile icon_href="/icons/paper-roll-outline.svg">Change Bed</Tile>
