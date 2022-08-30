@@ -2,17 +2,18 @@
 	export let href: string | undefined = undefined;
 	export let icon_href: string | undefined = undefined;
 	export let icon_alt: string | undefined = undefined;
+	export let disabled: boolean = false;
 </script>
 
 {#if href === undefined}
-	<button class={$$props.class + ' tile '}>
+	<button class={$$props.class + ' tile '} class:disabled>
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
 		<slot />
 	</button>
 {:else}
-	<a class={$$props.class + ' tile'} {href}>
+	<a class={$$props.class + ' tile'} class:disabled {href}>
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
@@ -43,7 +44,7 @@
 		z-index: 1;
 	}
 
-	.tile:active {
+	.tile:not(.disabled):active {
 		transition-delay: -1s;
 		background-color: #000000;
 		color: #ffffff;
@@ -61,7 +62,7 @@
 		margin-bottom: 1rem;
 	}
 
-	.tile:active .icon {
+	.tile:not(.disabled):active .icon {
 		filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 		transition-delay: -1s;
 	}
