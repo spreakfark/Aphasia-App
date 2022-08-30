@@ -28,7 +28,7 @@
 <style>
 	.tile {
 		font-family: 'Poppins', Arial, Helvetica, sans-serif;
-		font-size: clamp(1rem, min(4vw, 4vh), 2.75rem);
+		font-size: clamp(0.5rem, min(4vw, 3.5vh), 2.75rem);
 		font-weight: 700;
 		line-height: clamp(1rem, min(5vw, 5vh), 3rem);
 		text-decoration: none;
@@ -59,7 +59,7 @@
 
 	.tile .icon {
 		width: auto;
-		height: calc(clamp(1rem, min(4vw, 4vh), 2.75rem) * 2);
+		height: calc(clamp(0.5rem, min(4vw, 3.5vh), 2.75rem) * 2);
 		object-fit: contain;
 		transition: 0s;
 		transition-delay: 3s;
