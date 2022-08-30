@@ -15,19 +15,24 @@
 			url('/fonts/poppins/Poppins-Medium.woff') format('woff');
 	}
 
+	:global(html) {
+		height: 100%;
+	}
+
 	:global(body) {
 		font-family: 'Poppins', Arial, Helvetica, sans-serif;
 		font-weight: 700;
 		font-style: normal;
 
-		margin: 0;
-		width: 100vw;
-		height: 100vh;
+		width: auto;
+		height: calc(100% - (env(safe-area-inset-top) + env(safe-area-inset-bottom)));
 		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		user-select: none;
+		margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+			env(safe-area-inset-left);
 	}
 
 	:global(html),
@@ -42,8 +47,8 @@
 		margin-top: -1px;
 		margin-left: -1px;
 		display: grid;
-		height: calc(100vh + 1px);
-		width: calc(100vw + 1px);
+		height: calc(100% + 1px);
+		width: calc(100% + 1px);
 		overflow: hidden;
 		overscroll-behavior: none;
 		grid-template-columns: repeat(2, 1fr);
@@ -59,5 +64,9 @@
 		:global(.grid) {
 			grid-template-columns: repeat(4, 1fr);
 		}
+	}
+
+	main {
+		
 	}
 </style>
