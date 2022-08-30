@@ -1,3 +1,26 @@
+<script>
+	import { onMount } from 'svelte';
+	import { useRegisterSW } from 'virtual:pwa-register/svelte';
+	import { browser, dev } from '$app/environment';
+
+	onMount(() => {
+		registerServiceWorker();
+	});
+
+	function registerServiceWorker() {
+		if (!dev && !browser) {
+			return;
+		}
+		useRegisterSW({
+			onRegistered(r) {
+				if (r) {
+					r.update();
+				}
+			}
+		});
+	}
+</script>
+
 <slot />
 
 <style>
@@ -64,9 +87,5 @@
 		:global(.grid) {
 			grid-template-columns: repeat(4, 1fr);
 		}
-	}
-
-	main {
-		
 	}
 </style>
