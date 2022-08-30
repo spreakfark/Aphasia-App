@@ -1,5 +1,5 @@
 <script>
-
+import BackIcon from "$lib/back-icon.svelte";
 import Tile from "$lib/tile.svelte";
 
 </script>
@@ -15,5 +15,5 @@ import Tile from "$lib/tile.svelte";
 	<Tile>Tired</Tile>
 	<Tile>Depressed</Tile>
 	<Tile disabled></Tile>
-	<Tile href="/">Back</Tile>
+	<Tile href="/"><BackIcon /></Tile>
 </div>
