@@ -1,0 +1,1 @@
+import{default as e}from"../components/pages/pain/_page.svelte-d8d30e7d.js";import"./index-bf283ca9.js";import"./back-icon-e214ef35.js";import"./tile-b57ca796.js";import"./paths-6cd3a76e.js";export{e as component};
