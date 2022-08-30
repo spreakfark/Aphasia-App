@@ -70,4 +70,17 @@
 		filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 		transition-delay: -1s;
 	}
+
+	/* Safari only override */
+	:global(_::-webkit-full-page-media), :global(_:future), :global(:root) .tile {
+		margin: -1px !important;
+	}
+
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) {
+			.tile {
+				margin: -1px !important;
+			}
+		}
+	}
 </style>
