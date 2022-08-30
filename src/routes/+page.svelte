@@ -16,25 +16,3 @@
 	<Tile>Emotions</Tile>
 	<Tile>Yes/No</Tile>
 </div>
-
-<style>
-	.grid {
-		display: grid;
-		height: 100vh;
-		width: 100vw;
-		overflow: hidden;
-		overscroll-behavior: none;
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	@media (min-width: 600px) {
-		.grid {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	@media (min-width: 1200px) {
-		.grid {
-			grid-template-columns: repeat(4, 1fr);
-		}
-	}
-</style>
