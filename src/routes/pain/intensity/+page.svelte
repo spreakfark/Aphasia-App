@@ -1,6 +1,7 @@
 <script>
 	import BackIcon from '$lib/back-icon.svelte';
 	import Tile from '$lib/tile.svelte';
+    import { base } from '$app/paths';
 </script>
 
 <div class="wrapper">
@@ -22,7 +23,7 @@
         <Tile --tile-bg-color="#FF3A3A">9</Tile>
         <Tile --tile-bg-color="#FF2727">10</Tile>
         <Tile disabled />
-        <Tile href="/"><BackIcon /></Tile>
+        <Tile href="{base}/"><BackIcon /></Tile>
     </div>
 </div>
 

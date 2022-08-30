@@ -27,15 +27,15 @@
 	@font-face {
 		font-family: 'Poppins';
 		font-weight: 700;
-		src: url('/fonts/poppins/Poppins-Bold.woff2') format('woff2'),
-			url('/fonts/poppins/Poppins-Bold.woff') format('woff');
+		src: url('/Aphasia-App/fonts/poppins/Poppins-Bold.woff2') format('woff2'),
+			url('/Aphasia-App/fonts/poppins/Poppins-Bold.woff') format('woff');
 	}
 
 	@font-face {
 		font-family: 'Poppins';
 		font-weight: 500;
-		src: url('/fonts/poppins/Poppins-Medium.woff2') format('woff2'),
-			url('/fonts/poppins/Poppins-Medium.woff') format('woff');
+		src: url('/Aphasia-App/fonts/poppins/Poppins-Medium.woff2') format('woff2'),
+			url('/Aphasia-App/fonts/poppins/Poppins-Medium.woff') format('woff');
 	}
 
 	:global(html) {

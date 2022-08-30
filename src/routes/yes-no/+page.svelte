@@ -1,9 +1,11 @@
 <script>
 	import BackIcon from '$lib/back-icon.svelte';
 	import Tile from '$lib/tile.svelte';
+	import { base } from '$app/paths';
+
 </script>
 
-<a class="back" href="/">
+<a class="back" href="{base}/">
     <BackIcon />
 </a>
 <div class="yes-no-page grid">

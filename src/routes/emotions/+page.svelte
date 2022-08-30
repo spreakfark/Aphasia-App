@@ -1,6 +1,7 @@
 <script>
 import BackIcon from "$lib/back-icon.svelte";
 import Tile from "$lib/tile.svelte";
+import { base } from '$app/paths';
 
 </script>
 <div class="grid">
@@ -15,5 +16,5 @@ import Tile from "$lib/tile.svelte";
 	<Tile>Tired</Tile>
 	<Tile>Depressed</Tile>
 	<Tile disabled></Tile>
-	<Tile href="/"><BackIcon /></Tile>
+	<Tile href="{base}/"><BackIcon /></Tile>
 </div>

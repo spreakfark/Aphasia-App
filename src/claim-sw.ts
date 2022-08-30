@@ -18,7 +18,7 @@ let denylist: undefined | RegExp[];
 if (import.meta.env.DEV) denylist = [/^\/_app\/manifest.webmanifest$/];
 
 // to allow work offline
-registerRoute(new NavigationRoute(createHandlerBoundToURL('/'), { denylist }));
+registerRoute(new NavigationRoute(createHandlerBoundToURL('/Aphasia-App'), { denylist }));
 
 (self as any).skipWaiting();
 clientsClaim();
