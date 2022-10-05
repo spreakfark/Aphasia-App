@@ -64,6 +64,7 @@
 		overscroll-behavior-y: contain;
 		overflow: hidden;
 		-webkit-overflow-scrolling: touch;
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	:global(.grid) {
