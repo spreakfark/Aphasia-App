@@ -3,23 +3,40 @@
 	export let icon_href: string | undefined = undefined;
 	export let icon_alt: string | undefined = undefined;
 	export let disabled: boolean = false;
+	export let speachText: string | undefined = undefined;
+	let slotData: HTMLElement;
+
+	function speak() {
+		const speechSynthesis = window.speechSynthesis;
+		const voices = speechSynthesis.getVoices();
+		if (voices.length <= 0) {
+			return;
+		}
+		const message = new SpeechSynthesisUtterance(speachText ?? slotData?.innerText ?? '');
+		message.volume = 1;
+		message.rate = 1;
+		message.pitch = 1;
+		message.lang = 'en-US';
+		message.voice = voices.find((voice) => voice.lang === 'en-US') ?? null;
+		speechSynthesis.speak(message);
+	}
 </script>
 
 {#if href === undefined}
-	<button class={$$props.class + ' tile '} class:disabled>
+	<button class={$$props.class + ' tile '} class:disabled on:click={speak}>
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
-		<span>
+		<span bind:this={slotData}>
 			<slot />
 		</span>
 	</button>
 {:else}
-	<a class={$$props.class + ' tile'} class:disabled {href}>
+	<a class={$$props.class + ' tile'} class:disabled {href} on:click={speak}>
 		{#if icon_href !== undefined}
 			<img class="icon" src={icon_href} alt={icon_alt} />
 		{/if}
-		<span>
+		<span bind:this={slotData}>
 			<slot />
 		</span>
 	</a>
@@ -73,7 +90,9 @@
 	}
 
 	/* Safari only override */
-	:global(_::-webkit-full-page-media), :global(_:future), :global(:root) .tile {
+	:global(_::-webkit-full-page-media),
+	:global(_:future),
+	:global(:root) .tile {
 		margin: -1px !important;
 	}
 
