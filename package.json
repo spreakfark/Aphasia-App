@@ -1,6 +1,6 @@
 {
 	"name": "aphasia-app",
-	"version": "0.0.1",
+	"version": "V1.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",

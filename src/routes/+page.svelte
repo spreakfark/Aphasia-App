@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Tile from '$lib/tile.svelte';
 	import { base } from '$app/paths';
+
+	//@ts-ignore
+	const version: string = __version__;
 </script>
 
 <div class="grid">
@@ -17,3 +20,16 @@
 	<Tile icon_href="{base}/icons/emoticon-angry-outline.svg" href="{base}/emotions">Emotions</Tile>
 	<Tile href="{base}/yes-no">Yes/No</Tile>
 </div>
+<div class="version">{version}</div>
+
+<style>
+	.version {
+		position: absolute;
+		bottom: 0.4rem;
+		right: 0.4rem;
+		font-weight: 500;
+		opacity: 0.1;
+		font-size: 0.75rem;
+		z-index: 10;
+	}
+</style>
