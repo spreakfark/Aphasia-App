@@ -48,6 +48,7 @@
         padding: 3vh 5vw;
         font-size: clamp(1rem, min(4vw, 4vh), 2.75rem);
         border-top: 1px solid #000000;
+        margin-top: -1px;
     }
     .description {
         font-weight: 500;
