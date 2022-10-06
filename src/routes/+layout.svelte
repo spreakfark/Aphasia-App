@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { useRegisterSW } from 'virtual:pwa-register/svelte';
 	import { browser, dev } from '$app/environment';
+	import InstallPrompt from '$lib/install-prompt.svelte';
 
 	onMount(() => {
 		registerServiceWorker();
@@ -21,7 +22,12 @@
 	}
 </script>
 
-<slot />
+{#if browser}
+	<InstallPrompt />
+{/if}
+<main>
+	<slot />
+</main>
 
 <style>
 	@font-face {
@@ -53,6 +59,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: column;
 		user-select: none;
 		margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
 			env(safe-area-inset-left);
@@ -88,5 +95,11 @@
 		:global(.grid) {
 			grid-template-columns: repeat(4, 1fr);
 		}
+	}
+
+	main {
+		position: relative;
+		height: 100%;
+		width: 100%;
 	}
 </style>
