@@ -1,18 +1,19 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { base } from '$app/paths';
 	import Bowser from 'bowser';
-    
+
 	interface IBeforeInstallPromptEvent extends Event {
 		prompt(): Promise<void>;
 	}
-    
+
 	let dialogVisible = false;
 	let bannerVisible = false;
 
 	let isMobile = false;
 	let isSafari = false;
 	let isChrome = false;
+	let isIPaid = false;
 	let isInStandaloneMode = false;
 
 	let installer: IBeforeInstallPromptEvent | undefined;
@@ -23,20 +24,26 @@
 		isMobile = platform === 'mobile' || platform === 'tablet';
 		isSafari = browser.getBrowserName(true) === 'safari';
 		isChrome = browser.getBrowserName(true) === 'chrome';
+		const iPadProperties =
+			navigator.userAgent.match(/Mac/) &&
+			!!navigator.maxTouchPoints &&
+			navigator?.maxTouchPoints > 2;
+		isIPaid = iPadProperties !== null && iPadProperties;
+
 		isInStandaloneMode =
 			window.matchMedia('(display-mode: standalone)').matches ||
 			(window.navigator as any).standalone ||
 			document.referrer.includes('android-app://');
 
-		bannerVisible = isMobile && !isInStandaloneMode;
+		bannerVisible = (isMobile || isIPaid) && !isInStandaloneMode;
 	});
 
 	function install() {
 		if (isChrome) {
-            if (installer === undefined) {
-                bannerVisible = false;
-                return;
-            }
+			if (installer === undefined) {
+				bannerVisible = false;
+				return;
+			}
 			installer?.prompt();
 			return;
 		}
@@ -81,7 +88,7 @@
 								d="M 28.0117 36.0975 C 29.0195 36.0975 29.8633 35.2538 29.8633 34.2694 L 29.8633 10.1991 L 29.7226 6.7069 L 31.3164 8.3710 L 34.8555 12.1444 C 35.1836 12.5194 35.6758 12.7069 36.1211 12.7069 C 37.1055 12.7069 37.8320 12.0038 37.8320 11.0663 C 37.8320 10.5507 37.6445 10.1757 37.2930 9.8241 L 29.3711 2.1835 C 28.9023 1.7146 28.4805 1.5509 28.0117 1.5509 C 27.5195 1.5509 27.1211 1.7146 26.6523 2.1835 L 18.7305 9.8241 C 18.3789 10.1757 18.1679 10.5507 18.1679 11.0663 C 18.1679 12.0038 18.8711 12.7069 19.8555 12.7069 C 20.3242 12.7069 20.8164 12.5194 21.1445 12.1444 L 24.7070 8.3710 L 26.3008 6.6835 L 26.1367 10.1991 L 26.1367 34.2694 C 26.1367 35.2538 27.0039 36.0975 28.0117 36.0975 Z M 14.5586 54.4491 L 41.4414 54.4491 C 46.3633 54.4491 48.8008 52.0116 48.8008 47.1835 L 48.8008 24.0741 C 48.8008 19.2460 46.3633 16.8085 41.4414 16.8085 L 34.9258 16.8085 L 34.9258 20.5819 L 41.3945 20.5819 C 43.6914 20.5819 45.0274 21.8241 45.0274 24.2616 L 45.0274 46.9960 C 45.0274 49.4335 43.6914 50.6757 41.3945 50.6757 L 14.6289 50.6757 C 12.2852 50.6757 10.9726 49.4335 10.9726 46.9960 L 10.9726 24.2616 C 10.9726 21.8241 12.2852 20.5819 14.6289 20.5819 L 21.0976 20.5819 L 21.0976 16.8085 L 14.5586 16.8085 C 9.6836 16.8085 7.1992 19.2226 7.1992 24.0741 L 7.1992 47.1835 C 7.1992 52.0350 9.6836 54.4491 14.5586 54.4491 Z"
 							/></svg
 						>
-						<span>1. Press the share button below</span>
+						<span>1. Press the share button {isIPaid ? 'above' : 'below'}</span>
 					</div>
 					<div class="step fill-black">
 						<svg
@@ -142,6 +149,8 @@
 		margin-left: 1rem;
 		margin-right: 1rem;
 		animation: slide-in 0.8s forwards;
+		border-bottom: 1px solid #000000;
+		z-index: 100;
 	}
 
 	@keyframes slide-in {
