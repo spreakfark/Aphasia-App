@@ -1,17 +1,19 @@
-<h1 align="center"><a href="https://spreakfark.github.io/Aphasia-App/">
+<div align="center">
+<h1 align="center">
 Aphasia-App
-</a></h1>
+</h1>
+</div>
 
 
-<p align="center">
+<div align="center">
 <img src="README_preview.gif" style="max-height: 480px; display: inline-block;" height="480" />
-</p>
+</div>
 
+<div align="center">
 <a href="https://spreakfark.github.io/Aphasia-App/">
-<p align="center">
 Open Application &rarr;
-</p>
 </a>
+</div>
 
 
 ---
